@@ -1,35 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kht
-  Date: 2025. 7. 28.
-  Time: 오후 2:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-    <style>
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, del, dfn, cite, code, var, b, i, u, em, strong, font, img, object, video, audio {
-            margin: 0;
-            padding: 0;
-            border-style: none;
-            border: 0;
-            outline: none;
-            text-decoration: none;
-            vertical-align: baseline;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
 </head>
 <body>
 
-
-
-
-
-
-
-<img alt="로딩중..." src="${pageContext.request.contextPath}/assets/image/img.png">
-
+  <h1>Hello World</h1>
+  
+  <img alt="로딩중..." src="${contextPath}/resources/image/loading.gif">
+  
 </body>
 </html>
