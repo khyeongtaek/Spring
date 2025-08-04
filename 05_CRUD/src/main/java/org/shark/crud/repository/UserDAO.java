@@ -14,6 +14,10 @@ public class UserDAO {
         return template.selectOne(prependNamespace("getUser"), userDto);
     }
 
+    public UserDTO getUserByNickname(String nickname) {
+        return template.selectOne(prependNamespace("getUserByNickname"), nickname);
+    }
+
 
     private String prependNamespace(String statementId) {
         return "mybatis.mapper.userMapper." + statementId;

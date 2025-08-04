@@ -10,4 +10,5 @@ public interface BoardService {
     boolean addBoard(BoardDTO board);
     boolean modifyBoard(BoardDTO board);
     boolean removeBoard(Integer bid);
+    Integer getBoardCount();
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 
 public interface UserService {
     UserDTO findUserByEmailAndPassword(UserDTO userDto);
+    UserDTO findUserByNickname(String nickname);
 }

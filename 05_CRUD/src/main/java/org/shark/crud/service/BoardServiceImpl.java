@@ -35,4 +35,9 @@ public class BoardServiceImpl implements BoardService{
     public boolean removeBoard(Integer bid) {
         return boardDAO.deleteBoard(bid) == 1;
     }
+    @Override
+    public Integer getBoardCount() {
+        return boardDAO.getBoardCount();
+    }
+
 }

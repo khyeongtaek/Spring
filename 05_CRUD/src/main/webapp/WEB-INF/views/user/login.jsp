@@ -9,18 +9,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<c:set var="redirectURL" value="${pageContext.request.requestURI}"/>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
 </head>
-  <body>
+<body>
 
-  <h1>로긴 화면</h1>
+<h1>로긴 화면</h1>
 
-  ${redirectURL}
+<form action="${contextPath}/user/login" method="post">
+    <input type="hidden" name="url" value="${url}">
+    <label>이메일: <input type="text" name="email"></label>
+    <br>
+    <label>패스워드: <input type="password" name="password"></label>
+    <button>로그인</button>
+    <button type="button" onclick="onSignUp()">회원가입</button>
 
-  </body>
+    <c:if test="${not empty error}">
+        <div style="font-size: 12px; color:red;">${error}</div>
+    </c:if>
+</form>
+
+<script type="text/javascript">
+    function onSignUp() {
+        location.href = "${contextPath}/user/signUp";
+    }
+
+</script>
+
+</body>
 </html>

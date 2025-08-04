@@ -9,13 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<c:set var="redirectURL" value="${pageContext.request.requestURI}"/>
-<html>
-<head>
-    <h1>Hello World</h1>
-</head>
-<body>
-<a href="${contextPath}/user/login?redirectURL=${redirectURL}">로그인</a>
+<jsp:include page="./layout/header.jsp">
+    <jsp:param name="title" value="Home"/>
+</jsp:include>
+
+<img src="${contextPath}/resources/image/img.png">
 
 
 </body>

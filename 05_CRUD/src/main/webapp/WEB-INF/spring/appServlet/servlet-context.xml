@@ -18,4 +18,11 @@
 
     <context:component-scan base-package="org.shark.crud"/>
 
+    <interceptors>
+        <interceptor>
+            <mapping path="/board/write"/>
+            <beans:bean class="org.shark.crud.interceptor.LoginCheckInterceptor"/>
+        </interceptor>
+    </interceptors>
+
 </beans:beans>

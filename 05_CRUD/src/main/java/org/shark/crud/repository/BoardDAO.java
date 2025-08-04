@@ -35,6 +35,10 @@ public class BoardDAO {
         return template.delete(prependNamespace("deleteBoardById"), bid);
     }
 
+    public Integer getBoardCount(){
+        return template.selectOne(prependNamespace("getBoardCount"));
+    }
+
 
 
 
