@@ -21,7 +21,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @ToString
 @Builder
 public class UserDTO {
@@ -29,6 +30,7 @@ public class UserDTO {
     private int uid;
     private String email;
     private String password;
+    private byte[] salt;
     private String nickname;
 
 }

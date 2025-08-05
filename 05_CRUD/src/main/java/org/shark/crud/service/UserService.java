@@ -5,6 +5,11 @@ import org.shark.crud.model.dto.UserDTO;
 import org.springframework.stereotype.Service;
 
 public interface UserService {
-    UserDTO findUserByEmailAndPassword(UserDTO userDto);
+    UserDTO login(UserDTO userDto);
+
     UserDTO findUserByNickname(String nickname);
+
+    boolean signUp(UserDTO user);
+
+    UserDTO findUserByEmail(String email);
 }

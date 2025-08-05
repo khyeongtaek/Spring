@@ -14,8 +14,8 @@
 </jsp:include>
 
 <h1>Board List</h1>
-<caption>${boardCount}개 게시글이 있습니다.</caption>
 <table border="1">
+<caption>${boardCount}개 게시글이 있습니다.</caption>
     <tbody>
     <c:forEach items="${boards}" var="board">
         <tr>

@@ -25,7 +25,7 @@
     <br>
     <label>패스워드: <input type="password" name="password"></label>
     <button>로그인</button>
-    <button type="button" onclick="onSignUp()">회원가입</button>
+    <button type="button" onclick="onSignup()">회원가입</button>
 
     <c:if test="${not empty error}">
         <div style="font-size: 12px; color:red;">${error}</div>
@@ -33,8 +33,8 @@
 </form>
 
 <script type="text/javascript">
-    function onSignUp() {
-        location.href = "${contextPath}/user/signUp";
+    function onSignup() {
+        location.href = "${contextPath}/user/signup";
     }
 
 </script>
