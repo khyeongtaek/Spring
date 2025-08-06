@@ -21,7 +21,7 @@
 <div>이메일: ${user.email}</div>
 <div>프로필 이미지</div>
 <div>
-    <img src="${contextPath}${user.filePath}/${user.filesystemName}" alt="프로필">
+    <img src="${contextPath}/uploads/${user.filePath}/${user.filesystemName}" alt="프로필">
 
     ${contextPath}
     <br>

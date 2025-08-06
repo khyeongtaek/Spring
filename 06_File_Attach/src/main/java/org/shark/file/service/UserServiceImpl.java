@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.shark.file.model.dto.UserDTO;
 import org.shark.file.repository.UserDAO;
 import org.shark.file.util.FileUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
     private final FileUtil fileUtil;
+
+    // file.properties에 설정한 파일 저장 루트 경로 주입
+    @Value("${upload.path}")
+    private String uploadPath;
 
     @Override
     public List<UserDTO> findAllUsers() {
@@ -32,25 +37,25 @@ public class UserServiceImpl implements UserService {
     public boolean signUp(UserDTO user, MultipartFile profile) {
 
         try {
-            String filePath = fileUtil.getFilePath();
-            Path uploadPath = Paths.get(filePath);
+            String datePath = fileUtil.getFilePath();
+            Path fullSavePath = Paths.get(uploadPath, datePath);
             System.out.println("=========서비스=================");
             System.out.println();
             System.out.println();
-            System.out.println("uploadPath: "+ uploadPath);
+            System.out.println("uploadPath: "+ fullSavePath);
             System.out.println();
             System.out.println();
-            if (!Files.exists(uploadPath)) {
-                Files.createDirectories(uploadPath);
+            if (!Files.exists(fullSavePath)) {
+                Files.createDirectories(fullSavePath);
             }
 
             String originalFilename = profile.getOriginalFilename();
             String filesystemName = fileUtil.getFilesystemName(originalFilename);
+            Path filePath = fullSavePath.resolve(filesystemName);
 
-            Path path = Paths.get(filePath + "/" + filesystemName);
-            Files.copy(profile.getInputStream(), path);
+            profile.transferTo(filePath.toFile());
 
-            user.setFilePath(filePath);
+            user.setFilePath(datePath);
             user.setOriginalFilename(originalFilename);
             user.setFilesystemName(filesystemName);
             return userDAO.insertUser(user) == 1;

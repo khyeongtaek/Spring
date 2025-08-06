@@ -9,8 +9,10 @@
 
     <annotation-driven/>
 
+    <context:property-placeholder location="classpath:/config/file.properties"/>
+
     <resources location="/resources/" mapping="/resources/**"/>
-    <resources location="file:/Users/" mapping="/Users/**"/>
+    <resources location="file:${upload.path}/" mapping="/uploads/**"/>
 
 
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
