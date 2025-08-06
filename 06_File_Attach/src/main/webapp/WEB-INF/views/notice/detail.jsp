@@ -17,13 +17,21 @@
 </head>
 <body>
 
-<h1>회원 정보 확인</h1>
-<div>이메일: ${user.email}</div>
-<div>프로필 이미지</div>
-<div>
-    <img src="${contextPath}/uploads/${user.filePath}/${user.filesystemName}" alt="프로필">
+<h1>${notice.title}</h1>
+<h4>첨부 파일</h4>
+<c:forEach items="${attaches}" var="attach">
+    <div><a class="download-link" href="${contextPath}/notice/download?aid=${attach.aid}">${attach.originalFilename}</a>
+    </div>
+</c:forEach>
+<pre>${notice.content}</pre>
+<button onclick="onDelete()">삭제</button>
+<script type="text/javascript">
+    function onDelete() {
+        location.href = "${contextPath}/notice/remove?nid=${notice.nid}";
+    }
 
-</div>
 
+
+</script>
 </body>
 </html>

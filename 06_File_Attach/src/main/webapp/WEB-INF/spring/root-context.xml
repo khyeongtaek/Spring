@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
 
     <bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
@@ -9,6 +13,11 @@
                   value="jdbc:mysql://kwonht.synology.me:33307/db_file?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
         <property name="username" value="user"/>
         <property name="password" value="root"/>
+    </bean>
+
+
+    <bean class="com.zaxxer.hikari.HikariDataSource" id="hikariDataSource">
+        <constructor-arg ref="hikariConfig"/>
     </bean>
 
     <bean class="com.zaxxer.hikari.HikariDataSource" id="hikariDataSource">
@@ -24,6 +33,15 @@
     <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemplate">
         <constructor-arg ref="sqlSessionFactoryBean"/>
     </bean>
+
+    <!-- 트랜잭션 매니저 설정 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="hikariDataSource"/>
+    </bean>
+
+    <!-- @Transactional 어노테이션 활성화 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
 
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>

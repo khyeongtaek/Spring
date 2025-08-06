@@ -17,13 +17,20 @@
 </head>
 <body>
 
-<h1>회원 정보 확인</h1>
-<div>이메일: ${user.email}</div>
-<div>프로필 이미지</div>
-<div>
-    <img src="${contextPath}/uploads/${user.filePath}/${user.filesystemName}" alt="프로필">
+<h1>공지사항 작성하기</h1>
+<form action="${contextPath}/notice/write" method="post" enctype="multipart/form-data" id="writeForm">
 
-</div>
+    <label>제목: <input type="text" name="title"></label>
+    <br>
+    <textarea name="content"></textarea>
+    <br>
+    <input type="file" name="files" id="files" multiple>
+    <br>
+
+    <button>하기</button>
+
+</form>
+
 
 </body>
 </html>

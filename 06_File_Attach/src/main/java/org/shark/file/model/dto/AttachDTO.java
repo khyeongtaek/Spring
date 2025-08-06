@@ -12,6 +12,6 @@ public class AttachDTO {
     private Integer aid;
     private Integer nid;
     private String filePath;
-    private String originalFileName;
+    private String originalFilename;
     private String filesystemName;
 }

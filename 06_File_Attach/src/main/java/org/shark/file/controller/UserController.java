@@ -32,7 +32,7 @@ public class UserController {
 
         if (!signupResult) {
             redirectAttributes.addFlashAttribute("error", "<경> 회원가입 실패에 성공했습니다! <축>");
-            return "redirect:user/list";
+            return "redirect:/user/list";
         }
 
         redirectAttributes.addFlashAttribute("msg", "회원가입 실패에 실패했습니다...");

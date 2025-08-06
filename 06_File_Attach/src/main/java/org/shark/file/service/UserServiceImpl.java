@@ -39,12 +39,6 @@ public class UserServiceImpl implements UserService {
         try {
             String datePath = fileUtil.getFilePath();
             Path fullSavePath = Paths.get(uploadPath, datePath);
-            System.out.println("=========서비스=================");
-            System.out.println();
-            System.out.println();
-            System.out.println("uploadPath: "+ fullSavePath);
-            System.out.println();
-            System.out.println();
             if (!Files.exists(fullSavePath)) {
                 Files.createDirectories(fullSavePath);
             }
