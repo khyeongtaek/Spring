@@ -1,34 +1,13 @@
-DROP DATABASE IF EXISTS db_file;
-CREATE DATABASE IF NOT EXISTS db_file;
-USE db_file;
+DROP DATABASE IF EXISTS db_pagination;
+CREATE DATABASE IF NOT EXISTS db_pagination;
+USE db_pagination;
 
 DROP TABLE IF EXISTS tbl_user;
-DROP TABLE IF EXISTS tbl_notice;
-DROP TABLE IF EXISTS tbl_attach;
-
-# 사용자 (단일 첨부 테이블)
 CREATE TABLE IF NOT EXISTS tbl_user (
-  uid          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  email        VARCHAR(100) NOT NULL,
-  file_path         VARCHAR(300) NULL,
-  original_filename VARCHAR(300) NULL,
-  filesystem_name   VARCHAR(300) NULL
-) ENGINE=InnoDB;
-
-# 공지사항 테이블 (다중 첨부 테이블)
-CREATE TABLE IF NOT EXISTS tbl_notice (
-  nid          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  title        VARCHAR(100) NOT NULL,
-  content      TEXT NULL
-) ENGINE=InnoDB;
-
-# 첨부 파일 테이블
-CREATE TABLE IF NOT EXISTS tbl_attach (
-  aid          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nid          INT NULL,
-  file_path         VARCHAR(300) NULL,
-  original_filename VARCHAR(300) NULL,
-  filesystem_name   VARCHAR(300) NULL,
-  FOREIGN KEY (nid) REFERENCES tbl_notice(nid)
-    ON DELETE CASCADE
-) ENGINE=InnoDB;
+	uid        INT,
+	first_name VARCHAR(50),
+	last_name  VARCHAR(50),
+	email      VARCHAR(50),
+	gender     VARCHAR(50),
+	ip_address VARCHAR(20)
+);
