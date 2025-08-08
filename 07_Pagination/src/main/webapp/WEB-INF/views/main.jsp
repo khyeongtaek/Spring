@@ -16,19 +16,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1></h1>
 <a href="${contextPath}/user/list">회원 목록</a>
-<br>
-<a href="${contextPath}/notice/list">공지사항 목록</a>
-
-<script type="text/javascript">
-    const msg = "${msg}";
-    if(msg !== '') {
-        alert(msg);
-    }
-
-</script>
-
-
-
 </body>
 </html>

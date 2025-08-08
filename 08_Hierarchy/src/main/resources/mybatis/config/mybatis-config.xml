@@ -10,8 +10,8 @@
     </settings>
 
     <typeAliases>
-        <typeAlias type="org.shark.pagination.model.dto.UserDTO" alias="UserDTO"/>
-        <typeAlias type="org.shark.pagination.model.dto.PageDTO" alias="PageDTO"/>
+        <typeAlias type="org.shark.hierarchy.model.dto.BbsDTO" alias="BbsDTO"/>
+        <typeAlias type="org.shark.hierarchy.model.dto.PageDTO" alias="PageDTO"/>
     </typeAliases>
 
 </configuration>

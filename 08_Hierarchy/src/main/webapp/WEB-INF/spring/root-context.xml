@@ -10,7 +10,7 @@
     <bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="jdbcUrl"
-                  value="jdbc:mysql://kwonht.synology.me:33307/db_pagination?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+                  value="jdbc:mysql://kwonht.synology.me:33307/db_hierarchy?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
         <property name="username" value="user"/>
         <property name="password" value="root"/>
     </bean>
