@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter@Setter
 public class PageDTO {
     private int page = 1;
-    private int size = 20;
+    private int size = 5;
     private int offset;
 
     private int itemCount;
