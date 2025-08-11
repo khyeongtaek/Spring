@@ -1,6 +1,11 @@
 package org.shark.file.model.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -9,8 +14,8 @@ import lombok.*;
 @Builder
 @ToString
 public class NoticeDTO {
-    private Integer nid;
-    private String title;
-    private String content;
-    private Integer attachCount;
+  private Integer nid;
+  private String title;
+  private String content;
+  private Integer attachCount;
 }
